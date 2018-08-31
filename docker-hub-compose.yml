@@ -1,0 +1,14 @@
+version: "2"
+services:
+  server:
+    image: ageapps/docker-node-mongo
+    ports:
+      - "8080:3000"
+    depends_on:
+      - db
+
+  db:
+    image: mongo
+    command: mongod --smallfiles
+    ports:
+      - "27017:27017"
