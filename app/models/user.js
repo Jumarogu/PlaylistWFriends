@@ -1,11 +1,19 @@
 module.exports = function(mongoose) {
-  var messageSchema = require('./message')(mongoose);
+	var songSchema = require('./song')(mongoose);
+	var albumSchema = require('./album')(mongoose);
+	var artistSchema = require('./artist')(mongoose);
 
-    const userSchema = mongoose.Schema({
-        name: String,
-        messages: [messageSchema]
-    }, {
-        timestamps: true
-    });
-    return userSchema;
+  const userSchema = mongoose.Schema({
+    name: {
+			type: String,
+			required: true
+		},
+		song: [songSchema],
+		album: [albumSchema],
+		artist: [artistSchema],
+  }, {
+    timestamps: true
+	});
+
+  return userSchema;
 }

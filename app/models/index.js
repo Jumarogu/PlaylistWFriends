@@ -28,28 +28,21 @@ db.once('open', function () {
     console.log("Connected to MongoDB to: " + url);
 });
 
-
 var userSchema = require('./user')(mongoose);
-var messageSchema = require('./message')(mongoose);
-
-
-
-// find user by name
-userSchema.methods.addMsg = function (msg, cb) {
-    this.messages.push(msg);
-    return this.save(cb)
-};
-
-// find user by name
-userSchema.statics.findByName = function (name, cb) {
-    return this.findOne({
-        name: name
-    }, cb);
-};
+var playlistSchema = require('./playlist')(mongoose);
+// var songSchema = require('./song')(mongoose);
+// var artistSchema = require('./artist')(mongoose);
+// var albumSchema = require('./album')(mongoose);
 
 
 var User = mongoose.model('User', userSchema);
-var Message = mongoose.model('Message', messageSchema);
+var Playlist = mongoose.model('Playlist', playlistSchema);
+// var Song = mongoose.model('Song', songSchema);
+// var Album = mongoose.model('Album', artistSchema);
+// var Artist = mongoose.model('Artist', albumSchema);
 
 exports.User = User;
-exports.Message = Message;
+exports.Playlist = Playlist;
+// exports.Song = Song;
+// exports.Album = Album;
+// exports.Artist = Artist;
