@@ -1,0 +1,23 @@
+<nz-layout >
+  <nz-header>
+    <div class="logo">
+      <a><img routerLink="/create" src="assets/icons/pruebaIcono.png"></a>  
+    </div>
+    <ul class="nav" nz-menu [nzTheme]="'dark'" [nzMode]="'horizontal'" style="line-height: 64px;">
+      <li nz-menu-item routerLink="/create">Create Playlist</li>
+      <li nz-menu-item routerLink="/join">Join Playlist</li>
+      <li nz-menu-item routerLink="/get">Get Playlist</li>
+    </ul>
+    <ul class="icons" nz-menu [nzTheme]="'dark'" [nzMode]="'horizontal'" style="line-height: 64px;">
+      <li nz-menu-item routerLink="/create"><span><i class="anticon anticon-bars"></i></span></li>
+      <li nz-menu-item routerLink="/join"><span><i class="anticon anticon-plus"></i></span></li>
+      <li nz-menu-item routerLink="/get"><span><i class="anticon anticon-download"></i></span></li>
+    </ul>
+  </nz-header>
+    <nz-content style="padding:50px; margin-bottom: 110px;">
+      <router-outlet></router-outlet>
+    </nz-content>
+  <nz-footer style="text-align: center;">
+    <div class="foot"></div>
+    PLaylist W Friends ©2018</nz-footer>
+</nz-layout>

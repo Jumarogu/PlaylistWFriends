@@ -1,0 +1,25 @@
+.logo {
+  width: 120px;
+  height: 31px;
+  background: #001529;
+  margin: 1px 38px 16px 0;
+  float: left;
+  border-bottom: 10px;
+  }
+
+.foot{
+  height: 30px;
+  margin-bottom: 0px !important;
+}
+.icons{
+  display: none;
+}
+@media only screen and (max-width: 620px) {
+  .nav{
+    display: none;
+  }
+  .icons{
+    display: initial;
+    
+  }
+}
