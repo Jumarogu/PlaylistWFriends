@@ -1,7 +1,7 @@
 
 # Playlist With Friends
 
-# Descripción
+# Description
 
 Playlist with friends is an app that allows you to create a playlist on Spotify so that everyone that is enrolled to the playlist can enjoy it. The app creates the playlist based on the music preferences of people that is joined. The app also provides interesting information about your friend’s preferences on music.
 
