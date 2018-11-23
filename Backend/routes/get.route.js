@@ -7,11 +7,11 @@ var spotifyApi = new SpotifyWebApi({
     clientId: 'be2a413e2bbd402db45432d7ccdf0199',
     clientSecret: 'aa634b8aaac3420ea1056e6a533d939e',
     redirectUri: 'http://localhost:4200/show-code'
-  });
+});
 
 exports.savePlaylist = (req, res) => {
-    
-    if(req.body.access_token != null) {
+
+    if (req.body.access_token != null) {
 
         let access_token = req.body.access_token;
         spotifyApi.setAccessToken(access_token);
@@ -21,41 +21,121 @@ exports.savePlaylist = (req, res) => {
         playlist_info.playlistName = req.body.playlistName;
 
         console.log("saving this playlist " + JSON.stringify(playlist_info));
-        MongoClient.connect(uri, function(err, client) {    
+        MongoClient.connect(uri, function (err, client) {
             const userCollections = client.db("PWF").collection("users");
-            let query = {"playlistCode": playlist_info.playlistCode};
+            let query = { "playlistCode": playlist_info.playlistCode };
             userCollections.find(query, (err, result) => {
                 assert.equal(err, null);
 
-                console.log("Users obtained : " + result );
+                console.log("Users obtained : " + result);
                 res.status(200).json(playlist_info);
             });
 
             client.close();
 
             spotifyApi.getMe()
-            .then(function(data) {
+                .then(function (data) {
 
-                return spotifyApi.createPlaylist(data.body.id, playlist_info.playlistName);
-            })
-            .then(function(data) {
-                console.log('Created playlist!');
-                console.log(data.body.id)
+                    return spotifyApi.createPlaylist(data.body.id, playlist_info.playlistName);
+                })
+                .then(function (data) {
+                    console.log('Created playlist!');
+                    console.log(data.body.id)
 
-                arraySongs = ["spotify:track:26O9tv2zKANc81Y5SirfGR",3]
+                    var tracks = [
+                        "spotify:track:0Dx2JcexaaBU11URKp9Fc1",
+                        "spotify:track:26O9tv2zKANc81Y5SirfGR",
+                        "spotify:track:0Dx2JcexaaBU11URKp9Fc1",
+                        "spotify:track:0b9oOr2ZgvyQu88wzixux9",
+                        "spotify:track:5I2I0xdHPV5opTDQbItBIb",
+                        "spotify:track:2R6EI6ZxRmbmYLxEAJ8xXy",
+                        "spotify:track:7p4vHnYXkxlzvfePJVpcTr",
+                        "spotify:track:5pqbHlHaVbkHJQlsAxhcZM",
+                        "spotify:track:24hYr62Cz2iA3OOef8mykI",
+                        "spotify:track:6ooluO7DiEhI1zmK94nRCM",
+                        "spotify:track:4DjKitOkJwvIEyTJ3Wf8aq",
+                        "spotify:track:32Z54yyOInrL7bAk2ZRN2d",
+                        "spotify:track:6rPO02ozF3bM7NnOV4h6s2",
+                        "spotify:track:32Z54yyOInrL7bAk2ZRN2d",
+                        "spotify:track:7bBpGRaS4C1JPc1Zbznr1l",
+                        "spotify:track:2iUb7DLswcEXEmsdD878no",
+                        "spotify:track:6UB1IP6ALsh3IiIjR7pRLQ",
+                        "spotify:track:6t1ahr2f1t9iSjjNFwFb4C",
+                        "spotify:track:0vek0LcCbvcMtj0GkXMMJy",
+                        "spotify:track:36fRbuu9QkKVDR1j7jTI2U",
+                        "spotify:track:3oc0WKqkvQ09FZ4v2TuRbL",
+                        "spotify:track:1Sflldtq2pKUti6YgRZlVL",
+                        "spotify:track:2NRhy2p5nQkv62kaec3BW6",
+                        "spotify:track:1T1nhNsVBnLCkaXITIa0yR",
+                        "spotify:track:0KYfHlslHwvs621CH3QXmb",
+                        "spotify:track:7FxidSR6IoL3qMRXxFJ8pd",
+                        "spotify:track:6GM7WCa0accugI9b2JTeix",
+                        "spotify:track:0o9bHFc8Lt5tZFvTjNZTNf",
+                        "spotify:track:3NPU6Eeb74wV7hKxJh2Tmi",
+                        "spotify:track:2FeYMsUt4MxZ6piYJzT7m8",
+                        "spotify:track:4ut5G4rgB1ClpMTMfjoIuy",
+                        "spotify:track:6KaJLqnny3gq5ko8chc0Ot",
+                        "spotify:track:0jvqmWRCyv7xnxqrtinbHJ",
+                        "spotify:track:5VGBgPVFO3e0lWz4WHYntQ",
+                        "spotify:track:5TvR8PSrBTOvD1M4S38UiD",
+                        "spotify:track:4hXAdUl4nAnSPc9thzP2E2",
+                        "spotify:track:1XM5PgxjpYcF0JuE9nfUbS",
+                        "spotify:track:0fl1Y7GXXbcLuj2mBPtG26",
+                        "spotify:track:4XqMDUQwscbottVP49z8xk",
+                        "spotify:track:04cd1MHVq1D8v1nuTZoCdv",
+                        "spotify:track:3SVQEFpdK9DirVsjmsTx7F",
+                        "spotify:track:1juHIWqgFiDFAKuEBP24Lt",
+                        "spotify:track:4iCJFRTRsFlj4UWoEd7bS9",
+                        "spotify:track:514rhnksEwHUh6LxXsQ4Y9",
+                        "spotify:track:4rIAqwhHGfWChQvQGYwEfR",
+                        "spotify:track:0uolNhegIkj0Q5YBeZ1Yq2",
+                        "spotify:track:4txQPJDlvU72lC6EMhT7m9",
+                        "spotify:track:17LxkTp8UNbPcYrDrI6UOq",
+                        "spotify:track:1XMH0iJVL75w59aeEMrWbf",
+                        "spotify:track:7CLxRXy3olj2KngFWAEIcg",
+                        "spotify:track:1s2B5cndbqK8rPJEIcKJRQ",
+                        "spotify:track:19XDJlw6WxC4XOKC1LGKid",
+                        "spotify:track:3za3hxbolwmy9AeUpWzuRE",
+                        "spotify:track:2WpmqBXawkgV7lBXGibukq",
+                        "spotify:track:4XIIC3Tnkr8Lt7TYmMxge0"
 
-// Add tracks to a specific position in a playlist
-spotifyApi.addTracksToPlaylist(data.body.id, ["spotify:track:4iV5W9uYEdYUVa79Axb7Rh", "spotify:track:1301WleyT98MSxVHPZCA6M"])
-  .then(function(data) {
-    console.log('Added tracks to playlist!');
-  }, function(err) {
-    console.log('Something went wrong!', err);
-  });
 
-            }, function(err) {
+                    ]
 
-            });
-            
+                    function shuffle(array) {
+                        var currentIndex = array.length, temporaryValue, randomIndex;
+
+                        // While there remain elements to shuffle...
+                        while (0 !== currentIndex) {
+
+                            // Pick a remaining element...
+                            randomIndex = Math.floor(Math.random() * currentIndex);
+                            currentIndex -= 1;
+
+                            // And swap it with the current element.
+                            temporaryValue = array[currentIndex];
+                            array[currentIndex] = array[randomIndex];
+                            array[randomIndex] = temporaryValue;
+                        }
+
+                        return array;
+                    }
+
+                    newTracks = shuffle(tracks)
+                    topTracks = newTracks.slice(1, 51);
+
+                    // Add tracks to a specific position in a playlist
+                    spotifyApi.addTracksToPlaylist(data.body.id, topTracks)
+                        .then(function (data) {
+                            console.log('Added tracks to playlist!');
+                        }, function (err) {
+                            console.log('Something went wrong!', err);
+                        });
+
+                }, function (err) {
+
+                });
+
         })
 
         // go trough each user searching the playlistcode match
@@ -65,6 +145,6 @@ spotifyApi.addTracksToPlaylist(data.body.id, ["spotify:track:4iV5W9uYEdYUVa79Axb
 
 
     } else {
-        res.status(400).json({'message': 'bad request, no params recibed'});
+        res.status(400).json({ 'message': 'bad request, no params recibed' });
     }
 }
