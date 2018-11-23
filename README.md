@@ -59,7 +59,7 @@ No, we don't have any limits. Any amount of members can join each playlist.
 
 ## How many songs do you add to the playlist when it is finally generated?
 
-.....
+We add up to 50 songs. This is an SPOTIFY API limitation.
 
 ## How do you determine what songs are going to be chosen for the playlist?
 
