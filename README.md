@@ -3,17 +3,17 @@
 
 # Descripción
 
-Playlist with friends es una aplicación que te permite crear una lista de reproducción en Spotify para que todos los que estén inscritos en la lista puedan disfrutarla. La aplicación crea la lista de reproducción según las preferencias de música de las personas que se unen. La aplicación también proporciona información interesante sobre las preferencias de tu amigo en la música.
+Playlist with friends is an app that allows you to create a playlist on Spotify so that everyone that is enrolled to the playlist can enjoy it. The app creates the playlist based on the music preferences of people that is joined. The app also provides interesting information about your friend’s preferences on music.
 
-# Tabla de Contenidos
+# Table of Content
 
-1. Instalación
-2. Uso
-3. Contribuciónes
-4. Creditos
-5. Licencia
+1. Installation
+2. Usage
+3. Contributions
+4. Credits
+5. License
 
-# 1. Instalación
+# 1. Installation
 
 ## Initial requirements
 
@@ -35,7 +35,7 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 Run `npm start` to run the API. There is no need to setup the database, it is automatically connected to the cloud using [MongoDB Atlas](https://www.mongodb.com/cloud).
 
-# 2. Uso
+# 2. Usage
 
 ### Exploring PlaylistWFriends main features
 
@@ -65,13 +65,13 @@ We add up to 50 songs. This is an SPOTIFY API limitation.
 
 Every member of the playlist authorizes the app so we can get their music preferences in Spotify. Therefore, we lookup at the user's top music genres in order to create an smart playlist.
 
-# 4. Creditos
+# 4. Credits
 
 Juan Manuel Romero Guardado - https://github.com/Jumarogu
 Juan Pablo Iñigo Escalante - https://github.com/Juanpaie
 Santiago Castro Macías - https://github.com/scastro93
 
-# 5. Licencia
+# 5. License
 
 By contributing to PlaylistWithFriends, you agree that your contributions will be licensed under the LICENSE file.
 
