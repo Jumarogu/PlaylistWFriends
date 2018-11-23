@@ -1,0 +1,47 @@
+<div nz-row nzXs='24' nzSm='24' nzMd='24' nzLg='24' nzXl='24'>
+    <div nz-col class='join'nzXs='24' nzSm='24' nzMd='24' nzLg='24' nzXl='24'>
+        Get Playlist
+    </div>
+</div>
+<div nz-row nzXs='24' nzSm='24' nzMd='24' nzLg='24' nzXl='24' style="background: #ffffff">
+    <div nz-col style="text-align: center; padding-bottom: 3%;" nzXs='24' nzSm='24' nzMd='24' nzLg='24' nzXl='24'>
+        <div>
+            <input class="inputs"
+                style="width: 300px; height: 50px; margin-right:30%; margin-left:30%;"
+                nz-input placeholder="Playlist Name" 
+                nzSize="large"
+                [(ngModel)]="this.playlist_info.name">
+        </div>
+        
+    </div>
+</div>    
+<div nz-row nzXs='24' nzSm='24' nzMd='24' nzLg='24' nzXl='24' style="background: #ffffff">
+        <div nz-col style="text-align: center; padding-bottom: 3%;" nzXs='24' nzSm='24' nzMd='24' nzLg='24' nzXl='24'>
+            <div>
+                <input class="code" 
+                    style="width: 300px; height: 50px; margin-right:30%; margin-left:30%;"
+                    nz-input placeholder="Playlist Code" 
+                    nzSize="large"
+                    [(ngModel)]="this.playlist_info.playlistCode">
+            </div>
+            
+        </div>
+    </div> 
+<div nz-row nzXs='24' nzSm='24' nzMd='24' nzLg='24' nzXl='24' style="background: #ffffff">
+    <div nz-col style="text-align: center; padding-bottom: 3%;" nzXs='24' nzSm='24' nzMd='24' nzLg='24' nzXl='24'>
+        <button (click)="this.redirect()" class="boton"
+            style="width: 300px; height: 50px; margin-right:30%; margin-left:30%;"
+            nz-button [nzSize]="large" nzType="primary">
+                Add Playlist to Spotify
+        </button>
+    </div>
+    <div class="share" style="padding: 24px; text-align: center;">
+            Share
+    </div>
+    <div class="imagenIconos">
+        <a routerLink="/error"><img src="assets/icons/fb.png"></a>
+        <a><img src="assets/icons/twitterIcon.png"></a>
+    </div>
+</div>
+
+    

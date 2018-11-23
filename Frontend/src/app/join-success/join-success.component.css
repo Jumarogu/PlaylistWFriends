@@ -1,0 +1,33 @@
+.main{
+    font-size: 90px;
+    color: #39bfa3;
+    background:#fff; 
+    padding: 24px; 
+    min-height: 100px; 
+    text-align: center;
+}
+.code{
+    background:#fff; 
+    text-align: center;
+    min-height: 280px;
+    
+}
+
+.code h3{
+    color: #001529;
+}
+.share{
+    color: #39bfa3;
+    font-size: 50px !important;
+}
+
+.imagenIconos img{
+    height: 40px;
+    width: 50px;
+    padding-right: 10px;
+}
+.pcode {
+    font-size: 60px;
+    color: #39bfa3;
+    text-align: center;
+}

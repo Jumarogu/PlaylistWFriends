@@ -1,0 +1,40 @@
+.main {
+    background:#fff; 
+    padding: 24px; 
+    min-height: 100px;
+    text-align: center;
+    font-size: 90px;
+    color: #39bfa3;
+
+}
+.imagen img{
+    height: 100%; 
+    width: 100%; 
+}
+
+.info{
+    background:#fff; 
+    text-align: center;
+    min-height: 280px;
+
+}
+.info button{
+    width: 300px;
+    height: 50px;
+    font-size: 17px;
+}
+
+.info h1{
+    color: #001529;
+    padding-bottom: 5%;
+}
+@media only screen and (max-width: 950px) {
+    .main{
+        font-size: 75px;
+    }
+}
+@media only screen and (max-width: 650px) {
+    .main{
+        font-size: 55px;
+    }
+}
